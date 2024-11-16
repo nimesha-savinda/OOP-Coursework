@@ -16,7 +16,6 @@ public class ConfigController {
     @Autowired
     private ConfigService configService;
 
-
     @GetMapping("/read")
     public ResponseEntity<String> readFile(){
         try{
@@ -31,10 +30,7 @@ public class ConfigController {
     }
     @GetMapping("/rate")
     public int readSingle(){
-        int value = configService.getRetrievalRate();
-        return value;
+        return configService.getRetrievalRate();
+
     }
-
-
-
 }
