@@ -1,4 +1,5 @@
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
@@ -14,7 +15,6 @@ public class Main {
 
             System.out.println("Customer Retrieval Rate:");
             int customerRetrievalRate = input.nextInt();
-            System.out.println("sss");
 
             System.out.println("Maximum Ticket Capacity:");
             int maxTicketCapacity = input.nextInt();
@@ -30,9 +30,32 @@ public class Main {
             fileWriter.write("Maximum Capacity:"+maxTicketCapacity+"\n");
             fileWriter.close();
 
+            int interval = 5000;
+            boolean cont = true;
+
+            while(cont){
+                config.run();
+                Thread.sleep(interval);
+//                System.out.println("continue?");
+//                cont = input.nextBoolean();
+            }
+
+
+
         }catch(Exception e){
             System.out.println(e);
         }
+
+//        try{
+//            int interval = 200000;
+//            boolean cont = true;
+//
+//            while(!cont){
+//
+//            }
+//
+//
+//        }catch(Exception e){System.out.println(e);}
 
     }
 }

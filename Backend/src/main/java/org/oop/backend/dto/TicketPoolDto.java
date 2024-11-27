@@ -1,17 +1,12 @@
-package org.oop.backend.model;
-
+package org.oop.backend.dto;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
 @Data
 @Builder
-public class TicketPool {
+public class TicketPoolDto {
     private int availableTickets;
     private int addedTickets;
     private int removedTickets;
-
-
 }

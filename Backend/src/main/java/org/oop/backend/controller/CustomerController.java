@@ -2,7 +2,8 @@ package org.oop.backend.controller;
 
 
 import org.oop.backend.dto.CustomerDto;
-import org.oop.backend.service.ConfigService;
+import org.oop.backend.model.Customer;
+import org.oop.backend.service.ConfigurationService;
 import org.oop.backend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,11 +22,26 @@ public class CustomerController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public String createCustomer(@RequestBody CustomerDto customer){
-        return customerService.createCustomer(customer);
+        return customerService.saveCustomer(customer);
 
     }
 
+    @GetMapping("/getLatest")
+    public Customer getLatest(){
+        return customerService.findTheLatestEntry();
 
+    }
+
+    @PostMapping("/ticketBought")
+    public void ticketBought(Customer customer,Integer ticket_count){
+        customerService.updateTicketsRemoved(customer,ticket_count);
+    }
+
+//    @GetMapping("/update")
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public String updateConfig(@RequestParam int x){
+//        return customerService.ticketRemove(x);
+//    }
 
 
 }
