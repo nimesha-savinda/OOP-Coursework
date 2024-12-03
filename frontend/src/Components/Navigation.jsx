@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { DataContext } from "./Layouts/DataContext";
+import { Link } from "react-router";
 
 function Navigation(props) {
   const { sharedData, setSharedData } = useContext(DataContext);
@@ -17,7 +18,7 @@ function Navigation(props) {
       </div>
       <div className="flex items-center gap-x-8">
         <div>
-          <button>Log out</button>
+          <Link to='/role'>Log out</Link>
         </div>
         
       </div>

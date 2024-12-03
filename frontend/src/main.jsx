@@ -5,6 +5,8 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import RootLayout from './Components/Layouts/Rootlayout.jsx'
 import CustomerBody from './Components/CustomerBody.jsx'
 import TextInput from './Components/textinput.jsx'
+import RoleSelect from './Components/RoleSelect.jsx'
+import Login from './Components/Login.jsx'
 
 
 
@@ -12,11 +14,17 @@ const router = createBrowserRouter(
   [{
     element:<RootLayout/>,
     children:[
-        { path:"/",
+        { path:"/customer",
           element:<CustomerBody/>
         },
-        { path:"/home",
-          element:<TextInput/>
+        { path:"/login",
+          element:<Login/>
+        },
+        { path:"/",
+          element:<RoleSelect/>
+        },
+        { path:"/vendor",
+          element:<RoleSelect/>
         },        
     ]
   }]
