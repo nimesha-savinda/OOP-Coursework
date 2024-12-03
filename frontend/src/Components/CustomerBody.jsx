@@ -3,6 +3,7 @@ import TextInput from './textinput'
 import { useState } from 'react'
 import { getTicketPool } from '../Services/getTicketPool'
 import { removeTickets } from '../Services/removeTickets'
+
 import { getLatestConfiguration } from '../Services/getLatestConfiguration'
 
 
