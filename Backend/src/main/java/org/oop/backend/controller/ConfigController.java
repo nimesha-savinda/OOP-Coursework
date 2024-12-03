@@ -6,6 +6,7 @@ import org.oop.backend.dto.ConfigurationDto;
 import org.oop.backend.dto.CustomerDto;
 import org.oop.backend.model.Configuration;
 import org.oop.backend.model.Customer;
+import org.oop.backend.model.TicketPool;
 import org.oop.backend.service.ConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,9 @@ public class ConfigController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public String createCustomer(@RequestBody ConfigurationDto configurationDto){
+
         return configurationService.saveConfiguration(configurationDto);
+
 
     }
 

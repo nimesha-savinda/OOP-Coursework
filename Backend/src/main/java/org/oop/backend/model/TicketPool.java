@@ -18,6 +18,9 @@ public class TicketPool {
 
     public TicketPool() {
     }
+    public TicketPool( int availableTickets) {
+        this.availableTickets = availableTickets;
+    }
     public TicketPool(String id, int availableTickets, int addedTickets, int removedTickets) {
         this.id = id;
         this.availableTickets = availableTickets;

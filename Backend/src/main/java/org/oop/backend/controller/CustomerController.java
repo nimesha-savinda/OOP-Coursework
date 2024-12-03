@@ -15,8 +15,6 @@ public class CustomerController {
     private CustomerService customerService;
 
 
-
-
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public String createCustomer(@RequestBody CustomerDto customer){
@@ -40,6 +38,8 @@ public class CustomerController {
 //    }
     @PutMapping("/{id}/remove-tickets")
     public String checkDetails(@PathVariable String id,@RequestParam Integer ticket_count){
+        System.out.println("Received ID: " + id);
+        System.out.println("Received Ticket Count: " + ticket_count);
         return customerService.ticketsRemoved(id,ticket_count);
     }
 

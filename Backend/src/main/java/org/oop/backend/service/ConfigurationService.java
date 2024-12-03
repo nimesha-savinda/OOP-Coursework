@@ -4,6 +4,7 @@ import org.oop.backend.dto.ConfigurationDto;
 import org.oop.backend.dto.CustomerDto;
 import org.oop.backend.model.Configuration;
 import org.oop.backend.model.Customer;
+import org.oop.backend.model.TicketPool;
 import org.oop.backend.repository.ConfigurationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class ConfigurationService {
                     Maximum_Capacity(configurationDto.getMaximum_Capacity()).build();
 
             configurationRepository.save(configuration);
+            TicketPool t1 = new TicketPool(configurationDto.getTotal_number_of_tickets());
 
             return " Successfully added to the database";
         }catch(Exception e){
