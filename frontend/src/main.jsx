@@ -7,6 +7,7 @@ import CustomerBody from './Components/CustomerBody.jsx'
 import TextInput from './Components/textinput.jsx'
 import RoleSelect from './Components/RoleSelect.jsx'
 import Login from './Components/Login.jsx'
+import VendorBody from './Components/VendorBody.jsx'
 
 
 
@@ -24,7 +25,7 @@ const router = createBrowserRouter(
           element:<RoleSelect/>
         },
         { path:"/vendor",
-          element:<RoleSelect/>
+          element:<VendorBody/>
         },        
     ]
   }]
