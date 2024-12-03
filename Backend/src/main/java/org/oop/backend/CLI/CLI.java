@@ -41,12 +41,15 @@ public class CLI {
 
         Scanner input = new Scanner(System.in);
 
+        System.out.println("1");
+
         while(cont) {
             System.out.println("*****************\n" +
                                 "1)Create Configuration File\n"+
                                 "2)View Configuration File\n"+
                                 "3)Track Ticket Pool\n"+
-                                "4)Quit\n" +
+                                "4)Customer Panel\n" +
+                                "6)Quit\n"+
                                 "*****************");
             String value = input.nextLine();
             switch (value) {
@@ -108,7 +111,34 @@ public class CLI {
                     break;
 
                 case "4":
-                        cont = false;
+
+                        System.out.println("Enter username");
+                        String username = input.nextLine();
+
+                        Customer exsisting_customer = customerRepository.findCustomerByUsername(username);
+
+                        String password = input.nextLine();
+                        if(password==exsisting_customer.getPassword()){
+                            System.out.println("Successfully logged in");
+                            System.out.println("Enter ticket amount to buy");
+
+                            Integer ticket_amount = input.nextInt();
+                            Configuration latest_config = configController.getLatest();
+
+
+                            if(ticket_amount<latest_config.getRetrieval_rate()){
+                                exsisting_customer.setTicketsBought(exsisting_customer.getTicketsBought()+ticket_amount);
+                            }else{System.out.println("Enter a valid ticket amount..!");}
+
+                        }else{
+                            System.out.println("Wrong password..!");
+                        }
+
+
+                    break;
+
+                case"5":
+                    cont = false;
                     break;
 
                 default:
