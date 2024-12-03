@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CLI Part/CLI Part.iml" filepath="$PROJECT_DIR$/CLI Part/CLI Part.iml" />
       <module fileurl="file://$PROJECT_DIR$/OOP-Coursework.iml" filepath="$PROJECT_DIR$/OOP-Coursework.iml" />
-      <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Frontend/frontend.iml" filepath="$PROJECT_DIR$/Frontend/frontend.iml" />
     </modules>
   </component>
 </project>
