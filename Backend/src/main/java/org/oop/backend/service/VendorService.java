@@ -1,7 +1,9 @@
 package org.oop.backend.service;
 
 import org.oop.backend.dto.VendorDto;
+import org.oop.backend.model.TicketPool;
 import org.oop.backend.model.Vendor;
+import org.oop.backend.repository.TicketPoolRepository;
 import org.oop.backend.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ import java.util.Optional;
 public class VendorService {
     @Autowired
     private VendorRepository vendorRepository;
+
+    @Autowired
+    private TicketPoolRepository ticketPoolRepository;
 
 
     public String createVendor(VendorDto vendorDto){
@@ -34,10 +39,16 @@ public class VendorService {
         Vendor vendor = optionalVendor.get();
         vendor.setTicketsAdded(vendor.getTicketsAdded()+ticket_count);
         vendorRepository.save(vendor);
+
+        TicketPool optionalTicketPoolService = ticketPoolRepository.findFirstByOrderByIdDesc();
+        optionalTicketPoolService.setAddedTickets(optionalTicketPoolService.getAddedTickets()+ticket_count);
+        optionalTicketPoolService.setAvailableTickets(optionalTicketPoolService.getAvailableTickets()+ticket_count);
+        ticketPoolRepository.save(optionalTicketPoolService);
+
         return "Record Updated...!";
         }
         catch(Exception e){
-            return e.getMessage();
+            return "Failed to update..!"+e.getMessage();
         }
     }
     public Vendor checkDetails(String username){

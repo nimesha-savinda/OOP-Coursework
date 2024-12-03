@@ -27,6 +27,10 @@ public class TicketPoolService {
         }
     }
 
+    public TicketPool getlatestTicketPool(){
+        return ticketPoolRepository.findFirstByOrderByIdDesc();
+    }
+
     public void updateAddedTickets(TicketPool ticketPool,Integer ticket_count){
         ticketPool.setAddedTickets(ticketPool.getAddedTickets()+ticket_count);
         ticketPool.setAvailableTickets(ticketPool.getAvailableTickets()+ticket_count);

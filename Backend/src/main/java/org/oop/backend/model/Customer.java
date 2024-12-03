@@ -19,9 +19,26 @@ public class Customer {
     private Boolean vip;
     private Integer ticketsBought;
 
+    public Customer() {
+    }
+
+    public Customer(String id, String username, String password, Boolean vip, Integer ticketsBought) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.vip = vip;
+        this.ticketsBought = ticketsBought;
+    }
+
 
     public void setTicketsBought(Integer ticketsBought) {
         this.ticketsBought = ticketsBought;
+    }
+
+    public Customer(String username,String password,Boolean vip){
+            this.username = username;
+            this.password = password;
+            this.vip = vip;
     }
 }
 

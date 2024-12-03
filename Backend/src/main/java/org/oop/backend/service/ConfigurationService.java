@@ -13,6 +13,9 @@ public class ConfigurationService {
     @Autowired
     private ConfigurationRepository configurationRepository;
 
+    @Autowired
+    private TicketPoolService ticketPoolService;
+
     public String saveConfiguration(ConfigurationDto configurationDto){
         try{
             Configuration configuration = Configuration.builder().
@@ -20,7 +23,9 @@ public class ConfigurationService {
                     Ticket_release_rate(configurationDto.getTicket_release_rate()).
                     Retrieval_rate(configurationDto.getRetrieval_rate()).
                     Maximum_Capacity(configurationDto.getMaximum_Capacity()).build();
+
             configurationRepository.save(configuration);
+
             return " Successfully added to the database";
         }catch(Exception e){
             return e.getMessage();

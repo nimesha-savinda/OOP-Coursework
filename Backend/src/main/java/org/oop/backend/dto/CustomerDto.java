@@ -11,6 +11,8 @@ public class CustomerDto {
     private String password;
     private Boolean vip;
     private Integer ticketsBought;
+
+
 }
 
 
