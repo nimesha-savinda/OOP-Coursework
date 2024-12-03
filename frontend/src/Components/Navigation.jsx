@@ -12,13 +12,13 @@ function Navigation(props) {
       <p>Hi, {sharedData.role}</p>
       </div>
       <div className="flex items-center gap-x-16">
-        <a className="font-semibold text-3xl" to="/">
+        <a className="font-semibold text-3xl">
           Online Booking
         </a>
       </div>
       <div className="flex items-center gap-x-8">
         <div>
-          <Link to='/role'>Log out</Link>
+          <Link to='/'>switch</Link>
         </div>
         
       </div>
