@@ -7,11 +7,7 @@ import Navigation from "../Navigation";
 
 function RootLayout() {
 
-    const [sharedData, setSharedData] = useState({
-        username: 'JohnDoe',
-        role: 'admin',
-        notifications: 3,
-      });
+    const [sharedData, setSharedData] = useState({});
     
     
   

@@ -3,6 +3,8 @@ import TextInput from './textinput'
 import { useState } from 'react'
 import { getTicketPool } from '../Services/getTicketPool'
 import { removeTickets } from '../Services/removeTickets'
+import { useContext } from "react";
+import { DataContext } from "./Layouts/DataContext";
 
 
 import { getLatestConfiguration } from '../Services/getLatestConfiguration'
@@ -16,6 +18,8 @@ function VendorBody() {
     const[configurationFile,setConfigurationFile] = useState({})
     const[ticket_pool,setTicket_pool]=useState({})
 
+    const { sharedData, setSharedData } = useContext(DataContext);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -24,7 +28,7 @@ function VendorBody() {
                 setResponseMessage('Retrieval Limit Exceeded..!');
 
             }else{
-                const response = await removeTickets(id, ticketCount);
+                const response = await removeTickets(sharedData.id, ticketCount);
                 setResponseMessage(response);
             }            
                

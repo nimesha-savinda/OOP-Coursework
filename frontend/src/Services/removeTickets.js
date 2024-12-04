@@ -11,7 +11,7 @@ export const removeTickets = async (id, ticket_count) => {
             throw new Error(`Error: ${response.statusText}`);
         }
 
-        const data = await response.text(); // Assuming the response is plain text
+        const data = await response.text(); // Assuming the response is plain text 
         return data;
     } catch (error) {
         console.error('Error in removeTickets API:', error);

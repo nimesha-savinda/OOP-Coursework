@@ -28,7 +28,7 @@ public class CustomerController {
 
     }
     @GetMapping("/login/check/{username}")
-    public Customer checkDetails(@RequestParam String username){
+    public Customer checkDetails(@PathVariable String username){
         return customerService.checkDetails(username);
     }
 

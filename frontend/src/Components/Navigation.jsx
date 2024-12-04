@@ -6,10 +6,15 @@ import { Link } from "react-router";
 function Navigation(props) {
   const { sharedData, setSharedData } = useContext(DataContext);
 
+  const clearUser = ()=>{
+    setSharedData({})
+
+  }
+
   return (
     <nav className="flex items-center  justify-between py-8 px-16">
       <div className="flex items-center gap-x-16">
-      <p>Hi, {sharedData.role}</p>
+      <p>Hi, {sharedData.username}</p>
       </div>
       <div className="flex items-center gap-x-16">
         <a className="font-semibold text-3xl">
@@ -18,7 +23,7 @@ function Navigation(props) {
       </div>
       <div className="flex items-center gap-x-8">
         <div>
-          <Link to='/'>switch</Link>
+          <Link to='/' onClick={clearUser}>switch</Link>
         </div>
         
       </div>
