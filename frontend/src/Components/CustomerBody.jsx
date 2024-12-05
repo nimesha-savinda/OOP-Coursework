@@ -17,16 +17,20 @@ function CustomerBody() {
     const [responseMessage, setResponseMessage] = useState('');
     const[configurationFile,setConfigurationFile] = useState({})
     const[ticket_pool,setTicket_pool]=useState({})
+    const[availableTickets,setAvailableTickets]=useState()
 
     const { sharedData, setSharedData } = useContext(DataContext);
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setAvailableTickets(ticket_pool.availableTickets)
+          console.log("new value is"+ticket_pool.availableTickets)
 
         try {
             if(ticketCount>configurationFile.retrieval_rate ){
                 setResponseMessage('Retrieval Limit Exceeded..!');
+
 
             }else{
                 const response = await removeTickets(sharedData.id, ticketCount);
@@ -49,12 +53,15 @@ function CustomerBody() {
             console.log(configurationFile)
         getTicketPool()
           .then((data)=>setTicket_pool(data))
+        
+          
         //   const intervalId = setInterval(getTicketPool, 5000);
         //    // Clean up the interval on component unmount 
         //     return () => clearInterval(intervalId);
           
        
           },[])
+          
           
     
   return (
@@ -65,7 +72,7 @@ function CustomerBody() {
                     <p>Available Tickets</p>
                 </div>
                 <div className='text-3xl items-center font-semibold'>
-                    {ticket_pool.availableTickets}
+                    {availableTickets}
                 </div>
             </div>
             <div className='flex bg-white items-center justify-between w-1/5'>

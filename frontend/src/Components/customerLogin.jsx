@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useContext } from "react";
 import { DataContext } from "./Layouts/DataContext";
 
-function Login() {
+function CustomerLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [customerDetails, setCustomerDetails] = useState({});
@@ -23,7 +23,7 @@ function Login() {
 
       if (password === data.password) {
         setSharedData(data);
-        navigate('/customer'); // Redirect to homepage
+        navigate('/customer'); // Redirect to ticket page
       } else {
         setErrorMessage('Incorrect password. Please try again.');
       }
@@ -36,9 +36,7 @@ function Login() {
     <div className="flex items-center justify-center h-screen">
         <div className="border-2 border-black p-6 rounded-lg flex flex-col items-center gap-4 w-80 -translate-y-16">
         
-        
-{/* 
-        <Link  className="w-full " to="/vendor"> */}
+      
           <form onSubmit={handleSubmit}>
           <input className='w-full border-2 border-black px-4 py-2' type="text" 
           value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter username" />
@@ -63,7 +61,7 @@ function Login() {
           
           
             
-        {/* /</Link> */}
+       
                         
        
 
@@ -74,4 +72,4 @@ function Login() {
   )
 }
 
-export default Login
+export default CustomerLogin
