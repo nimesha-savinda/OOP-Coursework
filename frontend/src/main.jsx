@@ -5,7 +5,7 @@ import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import RootLayout from './Components/Layouts/Rootlayout.jsx'
 import CustomerBody from './Components/CustomerBody.jsx'
 import RoleSelect from './Components/RoleSelect.jsx'
-import CustomerLogin from './Components/CustomerLogin.jsx'
+import CustomerLogin from './Components/customerLogin.jsx'
 import VendorLogin from './Components/vendorLogin.jsx'
 import VendorBody from './Components/VendorBody.jsx'
 

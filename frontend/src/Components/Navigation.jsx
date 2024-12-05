@@ -3,10 +3,10 @@ import { useContext } from "react";
 import { DataContext } from "./Layouts/DataContext";
 import { Link } from "react-router";
 
-function Navigation(props) {
+function Navigation() {
   const { sharedData, setSharedData } = useContext(DataContext);
 
-  const clearUser = ()=>{
+  const clearUser = () => {
     setSharedData({})
 
   }
@@ -14,7 +14,7 @@ function Navigation(props) {
   return (
     <nav className="flex items-center  justify-between py-8 px-16">
       <div className="flex items-center gap-x-16">
-      <p>Hi, {sharedData.username}</p>
+        <p>Hello,{sharedData.username}</p>
       </div>
       <div className="flex items-center gap-x-16">
         <a className="font-semibold text-3xl">
@@ -25,15 +25,10 @@ function Navigation(props) {
         <div>
           <Link to='/' onClick={clearUser}>switch</Link>
         </div>
-        
+
       </div>
     </nav>
   );
 }
 
 export default Navigation;
-
-
-const props = {
-    name: "Manupa",
-}
