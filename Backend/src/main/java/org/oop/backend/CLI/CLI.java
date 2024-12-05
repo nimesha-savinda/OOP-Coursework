@@ -146,10 +146,9 @@ public class CLI {
                             System.out.println("Wrong password..!");
                         }
 
-
                     break;
 
-                case"5":
+                case"6":
                     cont = false;
                     break;
 

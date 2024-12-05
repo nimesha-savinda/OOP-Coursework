@@ -30,8 +30,8 @@ public class VendorController {
         return vendorService.createVendor(vendor);
 
     }
-    @GetMapping("/login/check")
-    public Vendor checkDetails(@RequestBody String username){
+    @GetMapping("/login/check/{username}")
+    public Vendor checkDetails(@PathVariable String username){
         return vendorService.checkDetails(username);
     }
 

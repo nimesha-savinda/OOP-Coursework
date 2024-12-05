@@ -58,13 +58,6 @@ function CustomerLogin() {
         </form>
         {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
 
-
-
-
-
-
-
-
       </div>
 
 
