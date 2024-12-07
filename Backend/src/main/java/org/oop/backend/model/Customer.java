@@ -10,9 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "customers")
 @Data
 @Builder
-public class Customer {
+public class Customer  {
     @Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String username;
     private String password;
@@ -35,11 +34,14 @@ public class Customer {
         this.ticketsBought = ticketsBought;
     }
 
-    public Customer(String username,String password,Boolean vip){
+    public Customer(String username,String password,Boolean vip,Integer ticketsBought){
             this.username = username;
             this.password = password;
             this.vip = vip;
+            this.ticketsBought = ticketsBought;
     }
+
+
 }
 
 

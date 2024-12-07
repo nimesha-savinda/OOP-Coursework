@@ -2,4 +2,4 @@ spring:
   data:
     mongodb:
       uri: mongodb+srv://nimesha:Herm35JXCfM6fix7@store.v3ccr.mongodb.net/?retryWrites=true&w=majority&appName=stor
-      database: ooo
+      database: oop-coursework
