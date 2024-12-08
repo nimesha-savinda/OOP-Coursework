@@ -37,7 +37,7 @@ public class Vendor implements Runnable{
                 pool.setTotal(pool.getTotal()+value);
 
             }// Random value between 0 and 9
-            System.out.println(value+" Tickets added to the pool");
+            System.out.println("Vendor "+this.name+" added "+value+" Tickets to the pool");
             try {
                 Thread.sleep(random.nextInt(1000)); // Random short delay
             } catch (InterruptedException e) {

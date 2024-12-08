@@ -46,7 +46,7 @@ public class  Customer implements Runnable {
                 pool.setTotal(pool.getTotal()-value);
 
             }
-            System.out.println("customer "+getUsername()+" "+value+" Tickets bought");
+            System.out.println("Customer "+this.username+" bought "+value+" Tickets from the pool");
 //            System.out.println(getPool().toString());
             try {
                 Thread.sleep(random.nextInt(1000)); // Random short delay

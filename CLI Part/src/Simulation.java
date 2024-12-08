@@ -1,6 +1,9 @@
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.*;
+import java.util.logging.FileHandler;
+
 
 public class Simulation {
     public static void main(String[] args){
@@ -8,6 +11,10 @@ public class Simulation {
         Gson gson = new Gson();
         //file path of the local json file
         String filePath = "D:\\IIT\\Courseworks\\L05\\OOP\\OOP-Coursework\\CLI Part\\configuration.json";
+
+        Logger logger = Logger.getLogger("LoggerName");
+        logger.info("Ticketing Simulation started.!");
+
 
         Configuration configuration = null;
 
@@ -26,8 +33,8 @@ public class Simulation {
         //Customers and Vendors
         Customer c1 = new Customer("John",0,t1);
         Customer c2 = new Customer("Arthur",0,t1);
-        Vendor v1 = new Vendor("John",0,t1);
-        Vendor v2 = new Vendor("John",0,t1);
+        Vendor v1 = new Vendor("Patrick",0,t1);
+        Vendor v2 = new Vendor("Charles",0,t1);
 
         //Customer and Vendor Threads
         Thread customerThread1 = new Thread(c1);
@@ -50,5 +57,6 @@ public class Simulation {
             System.out.println("Error while executing threads "+e.getMessage());
         }
         System.out.println(t1.toString());
+        logger.info("Ticketing Simulation ended.!");
     }
 }
