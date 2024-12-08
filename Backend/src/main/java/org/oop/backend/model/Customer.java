@@ -10,13 +10,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "customers")
 @Data
 @Builder
-public class Customer  {
+public class Customer implements Runnable {
     @Id
     private String id;
     private String username;
     private String password;
     private Boolean vip;
     private Integer ticketsBought;
+    private TicketPool pool;
 
     public Customer() {
     }
@@ -41,7 +42,10 @@ public class Customer  {
             this.ticketsBought = ticketsBought;
     }
 
+    @Override
+    public void run() {
 
+    }
 }
 
 

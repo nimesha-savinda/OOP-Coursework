@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "ticket_pool")
 @Data
 @Builder
-public class TicketPool {
+public class  TicketPool {
     @Id
     private String id;
     private int availableTickets;
@@ -30,6 +30,30 @@ public class TicketPool {
     public TicketPool(int availableTickets, int addedTickets, int removedTickets) {
         this.availableTickets = availableTickets;
         this.addedTickets = addedTickets;
+        this.removedTickets = removedTickets;
+    }
+
+    public synchronized int getAvailableTickets() {
+        return availableTickets;
+    }
+
+    public synchronized void setAvailableTickets(int availableTickets) {
+        this.availableTickets = availableTickets;
+    }
+
+    public synchronized int getAddedTickets() {
+        return addedTickets;
+    }
+
+    public synchronized void setAddedTickets(int addedTickets) {
+        this.addedTickets = addedTickets;
+    }
+
+    public synchronized int getRemovedTickets() {
+        return removedTickets;
+    }
+
+    public synchronized void setRemovedTickets(int removedTickets) {
         this.removedTickets = removedTickets;
     }
 }

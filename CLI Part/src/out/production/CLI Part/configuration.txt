@@ -1,4 +1,0 @@
-Total number of tickets:22
-Ticket release rate:3
-Retrieval rate:3
-Maximum Capacity:1
