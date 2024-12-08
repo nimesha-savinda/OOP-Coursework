@@ -43,6 +43,7 @@ public class  Customer implements Runnable {
 
             synchronized (pool) {
                 pool.setRemoved(pool.getRemoved() + value);
+                pool.setTotal(pool.getTotal()-value);
 
             }
             System.out.println("customer "+getUsername()+" "+value+" Tickets bought");

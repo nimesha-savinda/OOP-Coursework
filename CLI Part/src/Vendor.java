@@ -34,6 +34,7 @@ public class Vendor implements Runnable{
 
             synchronized (pool) {
                 pool.setAdded(pool.getAdded() + value);
+                pool.setTotal(pool.getTotal()+value);
 
             }// Random value between 0 and 9
             System.out.println(value+" Tickets added to the pool");

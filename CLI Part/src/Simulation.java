@@ -15,7 +15,7 @@ public class Simulation {
             // parse json and map to configuration object
             FileReader reader = new FileReader(filePath);
             configuration = gson.fromJson(reader, Configuration.class);
-            System.out.println("configuration.json imported..!");
+            System.out.println("configuration.json imported..!"+configuration.getTotalTickets()+" Tickets available");
 
         } catch (IOException e) {
             System.out.println("Failed to import configuration file "+e.getMessage());
