@@ -1,15 +1,18 @@
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Vendor implements Runnable{
     private String name;
     private int added_tickets;
 
     private Ticketpool pool;
+    private Logger log;
 
-    public Vendor(String name, int added_tickets, Ticketpool pool) {
+    public Vendor(String name, int added_tickets, Ticketpool pool, Logger log) {
         this.name = name;
         this.added_tickets = added_tickets;
         this.pool = pool;
+        this.log = log;
     }
 
     public int getAdded_tickets() {
@@ -35,9 +38,11 @@ public class Vendor implements Runnable{
             synchronized (pool) {
                 pool.setAdded(pool.getAdded() + value);
                 pool.setTotal(pool.getTotal()+value);
+                log.info("Vendor "+this.name+" added "+value+" Tickets to the pool");
 
             }// Random value between 0 and 9
-            System.out.println("Vendor "+this.name+" added "+value+" Tickets to the pool");
+
+
             try {
                 Thread.sleep(random.nextInt(1000)); // Random short delay
             } catch (InterruptedException e) {

@@ -41,10 +41,10 @@ public class Simulation {
         Ticketpool t1 = new Ticketpool(configuration.getTotalTickets(), 0,0,configuration);
 
         //Customers and Vendors
-        Customer c1 = new Customer("John",0,t1);
-        Customer c2 = new Customer("Arthur",0,t1);
-        Vendor v1 = new Vendor("Patrick",0,t1);
-        Vendor v2 = new Vendor("Charles",0,t1);
+        Customer c1 = new Customer("John",0,t1,logger);
+        Customer c2 = new Customer("Arthur",0,t1,logger);
+        Vendor v1 = new Vendor("Patrick",0,t1,logger);
+        Vendor v2 = new Vendor("Charles",0,t1,logger);
 
         //Customer and Vendor Threads
         Thread customerThread1 = new Thread(c1);

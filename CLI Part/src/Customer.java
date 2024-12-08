@@ -1,16 +1,20 @@
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class  Customer implements Runnable {
     private String username;
     private int tickets_removed;
 
     private Ticketpool pool;
+    private Logger log;
 
-    public Customer(String username, int tickets_removed,Ticketpool ticketpool) {
+    public Customer(String username, int tickets_removed, Ticketpool pool, Logger log) {
         this.username = username;
         this.tickets_removed = tickets_removed;
-        this.pool = ticketpool;
+        this.pool = pool;
+        this.log = log;
     }
+
 
     public String getUsername() {
         return username;
@@ -44,9 +48,10 @@ public class  Customer implements Runnable {
             synchronized (pool) {
                 pool.setRemoved(pool.getRemoved() + value);
                 pool.setTotal(pool.getTotal()-value);
+                log.info("Customer "+this.username+" bought "+value+" Tickets from the pool");
 
             }
-            System.out.println("Customer "+this.username+" bought "+value+" Tickets from the pool");
+
 //            System.out.println(getPool().toString());
             try {
                 Thread.sleep(random.nextInt(1000)); // Random short delay
