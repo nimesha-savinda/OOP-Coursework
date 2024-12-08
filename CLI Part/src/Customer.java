@@ -46,6 +46,14 @@ public class  Customer implements Runnable {
             // Perform the operations
 
             synchronized (pool) {
+                while (pool.getTotal() == 0) {
+                    try {
+                        log.info("Customer " + this.username + " is waiting for customers to buy tickets.");
+                        pool.wait();
+                    } catch (InterruptedException e) {
+                        System.out.println("Error while waiting in the Vendor thread..!");
+                    }
+                }
                 pool.setRemoved(pool.getRemoved() + value);
                 pool.setTotal(pool.getTotal()-value);
                 log.info("Customer "+this.username+" bought "+value+" Tickets from the pool");

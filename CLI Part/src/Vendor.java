@@ -36,9 +36,21 @@ public class Vendor implements Runnable{
             int value = random.nextInt(pool.getConfiguration().getTicketReleaseRate())+1;
 
             synchronized (pool) {
+
+                while (pool.getTotal()+value >= pool.getConfiguration().getMaxTicketCapacity()) {
+                    try {
+                        log.info("Vendor " + this.name + " is waiting for customers to buy tickets.");
+                        pool.wait();
+                    } catch (InterruptedException e) {
+                        System.out.println("Error while waiting in the Vendor thread..!");
+                    }
+                }
+
                 pool.setAdded(pool.getAdded() + value);
                 pool.setTotal(pool.getTotal()+value);
                 log.info("Vendor "+this.name+" added "+value+" Tickets to the pool");
+
+                pool.notifyAll();
 
             }// Random value between 0 and 9
 
