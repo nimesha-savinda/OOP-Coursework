@@ -1,12 +1,15 @@
 public class Ticketpool {
-    private int total =0;
+    private int total;
     private int added;
     private int removed;
+    private Configuration configuration;
 
-    public Ticketpool(int total, int added, int removed) {
+
+    public Ticketpool(int total, int added, int removed, Configuration configuration) {
         this.total = total;
         this.added = added;
         this.removed = removed;
+        this.configuration = configuration;
     }
 
     public synchronized int getTotal() {
@@ -30,8 +33,15 @@ public class Ticketpool {
     }
 
     public synchronized void setRemoved(int removed) {
-
         this.removed = removed;
+    }
+
+    public Configuration getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(Configuration configuration) {
+        this.configuration = configuration;
     }
 
     @Override

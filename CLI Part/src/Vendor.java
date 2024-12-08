@@ -30,7 +30,7 @@ public class Vendor implements Runnable{
 
         for (int i = 0; i < iterations; i++) {
             // Generate a random value below 10
-            int value = random.nextInt(10)+1;
+            int value = random.nextInt(pool.getConfiguration().getTicketReleaseRate())+1;
 
             synchronized (pool) {
                 pool.setAdded(pool.getAdded() + value);

@@ -37,7 +37,7 @@ public class  Customer implements Runnable {
 
         for (int i = 0; i < iterations; i++) {
             // Generate a random value below 10
-            int value = random.nextInt(10)+1; // Random value between 0 and 9
+            int value = random.nextInt(pool.getConfiguration().getCustomerRetrievalRate())+1; // Random value between 0 and 9
 
             // Perform the operations
 
