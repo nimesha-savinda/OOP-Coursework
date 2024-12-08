@@ -58,6 +58,8 @@ public class  Customer implements Runnable {
                 pool.setTotal(pool.getTotal()-value);
                 log.info("Customer "+this.username+" bought "+value+" Tickets from the pool");
 
+                pool.notifyAll();
+
             }
 
 //            System.out.println(getPool().toString());
