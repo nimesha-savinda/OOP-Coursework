@@ -1,8 +1,9 @@
 import com.google.gson.Gson;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.logging.*;
+import java.util.logging.Logger;
 import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 
 
 public class Simulation {
@@ -13,6 +14,15 @@ public class Simulation {
         String filePath = "D:\\IIT\\Courseworks\\L05\\OOP\\OOP-Coursework\\CLI Part\\configuration.json";
 
         Logger logger = Logger.getLogger("LoggerName");
+
+        FileHandler fileHandler = null;
+        try {
+            fileHandler = new FileHandler("simulation_operations.log", true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        fileHandler.setFormatter(new SimpleFormatter());
+        logger.addHandler(fileHandler);
         logger.info("Ticketing Simulation started.!");
 
 
