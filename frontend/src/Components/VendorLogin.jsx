@@ -30,20 +30,20 @@ function VendorLogin() {
       }
     } catch (error) {
       setVendorDetails(null);
-      setErrorMessage('Failed to fetch customer details. Please try again.');
+      setErrorMessage('Please enter a valid username');
     }
   };
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="border-2 border-black p-6 rounded-lg flex flex-col items-center gap-4 w-80 -translate-y-16">
 
-
-        <form onSubmit={handleSubmit}>
-          <input className='w-full border-2 border-black px-4 py-2' type="text"
+      <h2 className="text-2xl font-bold mb-4">Vendor Login</h2>
+        <form onSubmit={handleSubmit}className='w-full flex flex-col gap-4'>
+          <input className='w-full border-2 border-black px-4 py-2 rounded' type="text"
             value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter username" />
 
           <input
-            className="w-full border-2 border-black px-4 py-2"
+            className="w-full border-2 border-black px-4 py-2 rounded"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

@@ -65,8 +65,8 @@ function CustomerBody() {
           
     
   return (
-    <div className=' py-8 px-16 mt-[2%]'>
-        <div className="flex flex-col items-center justify-evenly">
+    <div className="flex items-center justify-center h-screen">
+        <div className="border-2 border-black p-6 rounded-lg flex flex-col items-center gap-6 w-80 -translate-y-16">
             <div className='flex  items-center justify-between w-1/5'>
                 <div className='text-1xl items-center font-semibold'>
                     <p>Available Tickets</p>
@@ -83,9 +83,9 @@ function CustomerBody() {
                     
                 </div>
             </div>
-            <dev className="px-4 py-2">
+            <dev className="w-full flex flex-col gap-4">
                <a>Only {configurationFile.retrieval_rate} at a time</a>
-               <form onSubmit={handleSubmit}>
+               <form className='w-full flex flex-col gap-4' onSubmit={handleSubmit}>
                <input
                             type="number"
                             value={ticketCount}
@@ -98,7 +98,7 @@ function CustomerBody() {
                </form>
                 
             </dev> 
-            <p>Response: {responseMessage}</p>
+            {responseMessage &&<p className="text-green-500 text-sm">Response: {responseMessage}</p>}
         </div>   
     </div>
   )

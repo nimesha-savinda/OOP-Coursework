@@ -6,6 +6,7 @@ import org.oop.backend.model.Configuration;
 import org.oop.backend.model.Customer;
 import org.oop.backend.model.TicketPool;
 import org.oop.backend.repository.ConfigurationRepository;
+import org.oop.backend.repository.TicketPoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ public class ConfigurationService {
     @Autowired
     private TicketPoolService ticketPoolService;
 
+    @Autowired
+    private TicketPoolRepository ticketPoolRepository;
+
     public String saveConfiguration(ConfigurationDto configurationDto){
         try{
             Configuration configuration = Configuration.builder().
@@ -27,6 +31,8 @@ public class ConfigurationService {
 
             configurationRepository.save(configuration);
             TicketPool t1 = new TicketPool(configurationDto.getTotal_number_of_tickets());
+            ticketPoolRepository.save(t1);
+
 
             return " Successfully added to the database";
         }catch(Exception e){
