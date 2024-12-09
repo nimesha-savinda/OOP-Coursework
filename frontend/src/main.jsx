@@ -8,6 +8,7 @@ import RoleSelect from './Components/RoleSelect.jsx'
 import CustomerLogin from './Components/customerLogin.jsx'
 import VendorLogin from './Components/vendorLogin.jsx'
 import VendorBody from './Components/VendorBody.jsx'
+import ConfigurationBody from './Components/ConfiguratrionBody.jsx'
 
 
 
@@ -18,6 +19,9 @@ const router = createBrowserRouter(
 
         { path:"/",
           element:<RoleSelect/>
+        },
+        { path:"/configuration",
+          element:<ConfigurationBody/>
         },  
         { path:"/login/customer",
           element:<CustomerLogin/>

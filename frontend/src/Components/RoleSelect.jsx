@@ -21,6 +21,13 @@ function RoleSelect() {
         >
           Vendor
         </button></Link>
+        <Link  className="w-full " to="/configuration">
+        <button
+          className="w-full border-2 border-black px-4 py-2 text-lg 
+          rounded-lg font-medium hover:bg-black hover:text-white transition"
+        >
+          Configuration
+        </button></Link>
       </div>
     </div>
   );

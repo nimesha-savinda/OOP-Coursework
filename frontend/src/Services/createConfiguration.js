@@ -1,6 +1,6 @@
 export const createConfiguration = async (configurationData) => {
     try {
-        const response = await fetch('/api/config/create', {
+        const response = await fetch('http://localhost:8080/api/config/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
