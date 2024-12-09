@@ -12,7 +12,7 @@ public class Simulation {
         //file path of the local json file
         String filePath = "D:\\IIT\\Courseworks\\L05\\OOP\\OOP-Coursework\\CLI Part\\configuration.json";
 
-        Logger logger = Logger.getLogger("LoggerName");
+        Logger logger = Logger.getLogger("SimulationLogger");
 
         FileHandler fileHandler = null;
         try {

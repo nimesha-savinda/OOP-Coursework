@@ -1,10 +1,8 @@
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class Vendor implements Runnable{
     private String name;
     private int added_tickets;
-
     private Ticketpool pool;
     private Logger log;
 
@@ -28,11 +26,11 @@ public class Vendor implements Runnable{
 
         java.util.Random random = new java.util.Random();
 
-        // Generate a random number of iterations (e.g., between 1 and 10)
+        // generates a random number of iterations (between 1 and 10)
         int iterations = random.nextInt(10) + 1; // Random iterations between 1 and 10
 
         for (int i = 0; i < iterations; i++) {
-            // Generate a random value below 10
+            // generates a random value below 10
             int value = random.nextInt(pool.getConfiguration().getTicketReleaseRate())+1;
 
             synchronized (pool) {
@@ -60,11 +58,6 @@ public class Vendor implements Runnable{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-
-
-
-
         }
     }
 }

@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Vendor implements Runnable {
+public class Vendor {
     @Id
     private String id;
     private String username;
@@ -29,8 +29,5 @@ public class Vendor implements Runnable {
         this.ticketsAdded = ticketsAdded;
     }
 
-    @Override
-    public void run() {
 
-    }
 }

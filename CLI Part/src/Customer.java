@@ -1,10 +1,8 @@
-import java.util.Scanner;
 import java.util.logging.Logger;
 
 public class  Customer implements Runnable {
     private String username;
     private int tickets_removed;
-
     private Ticketpool pool;
     private Logger log;
 
@@ -48,7 +46,7 @@ public class  Customer implements Runnable {
             synchronized (pool) {
                 while (pool.getTotal() == 0) {
                     try {
-                        log.info("Customer " + this.username + " is waiting for customers to buy tickets.");
+                        log.info("Customer " + this.username + " is waiting for vendors to add tickets.");
                         pool.wait();
                     } catch (InterruptedException e) {
                         System.out.println("Error while waiting in the Vendor thread..!");
