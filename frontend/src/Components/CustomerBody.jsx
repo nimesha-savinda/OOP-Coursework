@@ -43,9 +43,7 @@ function CustomerBody() {
             
         }
     };
-
-
-    
+   
 
     useEffect(()=>{
         getLatestConfiguration()
@@ -53,13 +51,6 @@ function CustomerBody() {
             console.log(configurationFile)
         getTicketPool()
           .then((data)=>setTicket_pool(data))
-        
-          
-        //   const intervalId = setInterval(getTicketPool, 5000);
-        //    // Clean up the interval on component unmount 
-        //     return () => clearInterval(intervalId);
-          
-       
           },[])
           
           
@@ -76,9 +67,6 @@ function CustomerBody() {
                 </div>
             </div>
             <div className='flex bg-white items-center justify-between w-1/5'>
-                {/* <div className='text-1xl items-center font-semibold'>
-                    <p>Add amount:</p>
-                </div> */}
                 <div className='text-3xl items-center font-semibold'>
                     
                 </div>
@@ -98,7 +86,7 @@ function CustomerBody() {
                </form>
                 
             </dev> 
-            {responseMessage &&<p className="text-green-500 text-sm">Response: {responseMessage}</p>}
+            {responseMessage &&<p className="text-green-500 text-sm">{responseMessage}</p>}
         </div>   
     </div>
   )

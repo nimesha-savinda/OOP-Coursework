@@ -51,7 +51,7 @@ function ConfigurationBody() {
             className="w-full border-2 border-black px-4 py-2 rounded"
             type="number"
             name="Ticket_release_rate"
-            value={configurationData.retrieval_rate}
+            value={configurationData.Ticket_release_rate}
             onChange={handleChange}
             placeholder="Enter Ticket Release Rate"
             required
@@ -60,7 +60,7 @@ function ConfigurationBody() {
             className="w-full border-2 border-black px-4 py-2 rounded"
             type="number"
             name="Retrieval_rate"
-            value={configurationData.m}
+            value={configurationData.Retrieval_rate}
             onChange={handleChange}
             placeholder="Enter Customer Retrieval Rate"
             required
@@ -69,7 +69,7 @@ function ConfigurationBody() {
             className="w-full border-2 border-black px-4 py-2 rounded"
             type="number"
             name="Maximum_Capacity"
-            value={configurationData.maximum_capacity}
+            value={configurationData.Maximum_Capacity}
             onChange={handleChange}
             placeholder="Enter Maximum Capacity"
             required

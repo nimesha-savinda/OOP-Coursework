@@ -47,17 +47,13 @@ function VendorBody() {
         console.log(configurationFile)
         getTicketPool()
             .then((data) => setTicket_pool(data))
-        //   const intervalId = setInterval(getTicketPool, 5000);
-        //    // Clean up the interval on component unmount 
-        //     return () => clearInterval(intervalId);
-
 
     }, [])
 
 
     return (
-        <div className=' py-8 px-16 mt-[2%]'>
-            <div className="flex flex-col items-center justify-evenly">
+        <div className='flex items-center justify-center h-screen'>
+            <div className="border-2 border-black p-6 rounded-lg flex flex-col items-center gap-6 w-80 -translate-y-16">
                 <div className='flex  items-center justify-between w-1/5'>
                     <div className='text-1xl items-center font-semibold'>
                         <p>Available Tickets</p>
@@ -72,7 +68,7 @@ function VendorBody() {
                 </div>
                 <dev className="px-4 py-2">
                     <a>Only {configurationFile.release_rate} at a time</a>
-                    <form onSubmit={handleSubmit}>
+                    <form  className='w-full flex flex-col gap-4' onSubmit={handleSubmit}>
                         <input
                             type="number"
                             value={ticketCount}
@@ -85,7 +81,7 @@ function VendorBody() {
                     </form>
 
                 </dev>
-                <p>Response: {responseMessage}</p>
+                {responseMessage &&<p className="text-green-500 text-sm">{responseMessage}</p>}
             </div>
         </div>
     )

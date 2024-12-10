@@ -3,12 +3,10 @@ package org.oop.backend.service;
 import org.oop.backend.dto.CustomerDto;
 import org.oop.backend.model.Customer;
 import org.oop.backend.model.TicketPool;
-import org.oop.backend.model.Vendor;
 import org.oop.backend.repository.CustomerRepository;
 import org.oop.backend.repository.TicketPoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
