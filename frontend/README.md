@@ -14,7 +14,8 @@ This repository has the frontend of the Ticketing System, a web application desi
 
 ## Tech Stack
 
-**Client:** React, TailwindCSS
+- React 18.3.1
+- TailwindCSS 3.4.15
 
 
 
