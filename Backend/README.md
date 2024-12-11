@@ -14,9 +14,9 @@ This repository contains the backend service for the Ticketing System, built wit
 
 ## Tech Stack
 
-**Framework:** SpringBoot
+**Framework:** SpringBoot 3.3.5
 
-**Database:** MongoDB
+**Database:** MongoDB Atlas
 
 **Build Tool:** Maven
 
