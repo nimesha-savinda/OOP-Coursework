@@ -37,16 +37,9 @@ public class VendorController {
 
     @PutMapping("/{id}/add-tickets")
     public String addTickets(@PathVariable String id,@RequestParam Integer ticket_count){
-        return vendorService.ticketsRemoved(id,ticket_count);
+        return vendorService.ticketsAdded(id,ticket_count);
 
 
     }
-
-
-//    @GetMapping("/update")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public String updateConfig(@RequestParam int x){
-//        return vendorService.ticketAdd(x);
-//    }
 
 }

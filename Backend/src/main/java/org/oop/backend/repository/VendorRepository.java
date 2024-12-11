@@ -10,7 +10,6 @@ import java.util.Optional;
 @Repository
 public interface VendorRepository extends MongoRepository<Vendor,Long> {
     Vendor findVendorByUsername(String username);
-
     Optional<Vendor> findById(String id);
 }
 

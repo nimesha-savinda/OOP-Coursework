@@ -30,7 +30,9 @@ public class ConfigurationService {
                     Maximum_Capacity(configurationDto.getMaximum_Capacity()).build();
 
             configurationRepository.save(configuration);
-            TicketPool t1 = new TicketPool(configurationDto.getTotal_number_of_tickets());
+            TicketPool t1 = new TicketPool(
+                    configurationDto.getTotal_number_of_tickets(),
+                    0,0);
             ticketPoolRepository.save(t1);
 
 

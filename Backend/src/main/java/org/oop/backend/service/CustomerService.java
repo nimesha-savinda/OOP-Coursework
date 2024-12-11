@@ -1,8 +1,10 @@
 package org.oop.backend.service;
 
 import org.oop.backend.dto.CustomerDto;
+import org.oop.backend.model.Configuration;
 import org.oop.backend.model.Customer;
 import org.oop.backend.model.TicketPool;
+import org.oop.backend.repository.ConfigurationRepository;
 import org.oop.backend.repository.CustomerRepository;
 import org.oop.backend.repository.TicketPoolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class CustomerService extends Thread {
 
     @Autowired
     private TicketPoolRepository ticketPoolRepository;
+
+    @Autowired
+    private ConfigurationRepository configurationRepository;
 
     public String saveCustomer(CustomerDto customerDto){
         try{
@@ -43,21 +48,27 @@ public class CustomerService extends Thread {
     }
 
     public String ticketsRemoved(String id, Integer ticket_count){
-        try{
-            Optional<Customer> optionalCustomer = customerRepository.findById(id);
-            Customer customer = optionalCustomer.get();
-            customer.setTicketsBought(customer.getTicketsBought()+ticket_count);
-            customerRepository.save(customer);
 
-            TicketPool optionalTicketPoolService = ticketPoolRepository.findFirstByOrderByIdDesc();
-            optionalTicketPoolService.setRemovedTickets(optionalTicketPoolService.getRemovedTickets()+ticket_count);
-            optionalTicketPoolService.setAvailableTickets(optionalTicketPoolService.getAvailableTickets()-ticket_count);
-            ticketPoolRepository.save(optionalTicketPoolService);
+        Configuration current_configuration = configurationRepository.findFirstByOrderByIdDesc();
+        if(current_configuration.getRetrieval_rate()>=ticket_count){
+            try{
+                Optional<Customer> optionalCustomer = customerRepository.findById(id);
+                Customer customer = optionalCustomer.get();
+                customer.setTicketsBought(customer.getTicketsBought()+ticket_count);
+                customerRepository.save(customer);
 
-            return "Record Updated...!";
-        }
-        catch(Exception e){
-            return e.getMessage();
+                TicketPool optionalTicketPoolService = ticketPoolRepository.findFirstByOrderByIdDesc();
+                optionalTicketPoolService.setRemovedTickets(optionalTicketPoolService.getRemovedTickets()+ticket_count);
+                optionalTicketPoolService.setAvailableTickets(optionalTicketPoolService.getAvailableTickets()-ticket_count);
+                ticketPoolRepository.save(optionalTicketPoolService);
+
+                return "Record Updated...!";
+            }
+            catch(Exception e){
+                return e.getMessage();
+            }
+        }else {
+          return "Retrieval rate exceeded...! " ;
         }
     }
     public Customer checkDetails(String username){

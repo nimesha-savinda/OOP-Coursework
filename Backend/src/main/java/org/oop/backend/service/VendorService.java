@@ -1,8 +1,10 @@
 package org.oop.backend.service;
 
 import org.oop.backend.dto.VendorDto;
+import org.oop.backend.model.Configuration;
 import org.oop.backend.model.TicketPool;
 import org.oop.backend.model.Vendor;
+import org.oop.backend.repository.ConfigurationRepository;
 import org.oop.backend.repository.TicketPoolRepository;
 import org.oop.backend.repository.VendorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class VendorService {
     @Autowired
     private TicketPoolRepository ticketPoolRepository;
 
+    @Autowired
+    private ConfigurationRepository configurationRepository;
+
 
     public String createVendor(VendorDto vendorDto){
 
@@ -33,22 +38,28 @@ public class VendorService {
         }
         return "Successfully created";
     }
-    public String ticketsRemoved(String id, Integer ticket_count){
-        try{
-        Optional<Vendor> optionalVendor = vendorRepository.findById(id);
-        Vendor vendor = optionalVendor.get();
-        vendor.setTicketsAdded(vendor.getTicketsAdded()+ticket_count);
-        vendorRepository.save(vendor);
+    public String ticketsAdded(String id, Integer ticket_count){
 
-        TicketPool optionalTicketPoolService = ticketPoolRepository.findFirstByOrderByIdDesc();
-        optionalTicketPoolService.setAddedTickets(optionalTicketPoolService.getAddedTickets()+ticket_count);
-        optionalTicketPoolService.setAvailableTickets(optionalTicketPoolService.getAvailableTickets()+ticket_count);
-        ticketPoolRepository.save(optionalTicketPoolService);
+        Configuration current_configuration = configurationRepository.findFirstByOrderByIdDesc();
 
-        return "Record Updated...!";
-        }
-        catch(Exception e){
-            return "Failed to update..!"+e.getMessage();
+        if(current_configuration.getTicket_release_rate()>=ticket_count) {
+            try {
+                Optional<Vendor> optionalVendor = vendorRepository.findById(id);
+                Vendor vendor = optionalVendor.get();
+                vendor.setTicketsAdded(vendor.getTicketsAdded() + ticket_count);
+                vendorRepository.save(vendor);
+
+                TicketPool optionalTicketPoolService = ticketPoolRepository.findFirstByOrderByIdDesc();
+                optionalTicketPoolService.setAddedTickets(optionalTicketPoolService.getAddedTickets() + ticket_count);
+                optionalTicketPoolService.setAvailableTickets(optionalTicketPoolService.getAvailableTickets() + ticket_count);
+                ticketPoolRepository.save(optionalTicketPoolService);
+
+                return "Record Updated...!";
+            } catch (Exception e) {
+                return "Failed to update..!" + e.getMessage();
+            }
+        }else{
+            return "Ticket release rate exceeded..!";
         }
     }
     public Vendor checkDetails(String username){

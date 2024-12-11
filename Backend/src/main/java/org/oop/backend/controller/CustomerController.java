@@ -32,22 +32,11 @@ public class CustomerController {
         return customerService.checkDetails(username);
     }
 
-//    @PostMapping("/ticketBought")
-//    public void ticketBought(Customer customer,Integer ticket_count){
-//        customerService.updateTicketsRemoved(customer,ticket_count);
-//    }
     @PutMapping("/{id}/remove-tickets")
     public String checkDetails(@PathVariable String id,@RequestParam Integer ticket_count){
         System.out.println("Received ID: " + id);
         System.out.println("Received Ticket Count: " + ticket_count);
         return customerService.ticketsRemoved(id,ticket_count);
     }
-
-//    @GetMapping("/update")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public String updateConfig(@RequestParam int x){
-//        return customerService.ticketRemove(x);
-//    }
-
 
 }

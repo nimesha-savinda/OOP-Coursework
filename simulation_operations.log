@@ -541,3 +541,64 @@ Dec 09, 2024 11:40:11 AM Vendor run
 INFO: Vendor Charles added 2 Tickets to the pool
 Dec 09, 2024 11:40:12 AM Simulation main
 INFO: Ticketing Simulation ended.!
+Dec 10, 2024 1:22:45 PM Simulation main
+INFO: 
+Ticketing Simulation started.!
+Dec 10, 2024 1:22:45 PM Customer run
+INFO: Customer John bought 3 Tickets from the pool
+Dec 10, 2024 1:22:45 PM Vendor run
+INFO: Vendor David added 3 Tickets to the pool
+Dec 10, 2024 1:22:45 PM Vendor run
+INFO: Vendor Charles added 1 Tickets to the pool
+Dec 10, 2024 1:22:45 PM Vendor run
+INFO: Vendor Patrick added 5 Tickets to the pool
+Dec 10, 2024 1:22:45 PM Customer run
+INFO: Customer Arthur bought 2 Tickets from the pool
+Dec 10, 2024 1:22:45 PM Customer run
+INFO: Customer Peter bought 1 Tickets from the pool
+Dec 10, 2024 1:22:45 PM Vendor run
+INFO: Vendor David added 4 Tickets to the pool
+Dec 10, 2024 1:22:46 PM Customer run
+INFO: Customer John bought 2 Tickets from the pool
+Dec 10, 2024 1:22:46 PM Vendor run
+INFO: Vendor David added 4 Tickets to the pool
+Dec 10, 2024 1:22:46 PM Customer run
+INFO: Customer John bought 2 Tickets from the pool
+Dec 10, 2024 1:22:46 PM Customer run
+INFO: Customer John bought 1 Tickets from the pool
+Dec 10, 2024 1:22:46 PM Customer run
+INFO: Customer John bought 2 Tickets from the pool
+Dec 10, 2024 1:22:46 PM Customer run
+INFO: Customer Peter bought 3 Tickets from the pool
+Dec 10, 2024 1:22:46 PM Vendor run
+INFO: Vendor David added 5 Tickets to the pool
+Dec 10, 2024 1:22:46 PM Customer run
+INFO: Customer Peter bought 2 Tickets from the pool
+Dec 10, 2024 1:22:46 PM Vendor run
+INFO: Vendor David added 5 Tickets to the pool
+Dec 10, 2024 1:22:47 PM Customer run
+INFO: Customer John bought 3 Tickets from the pool
+Dec 10, 2024 1:22:47 PM Customer run
+INFO: Customer Peter bought 3 Tickets from the pool
+Dec 10, 2024 1:22:47 PM Vendor run
+INFO: Vendor David added 2 Tickets to the pool
+Dec 10, 2024 1:22:48 PM Vendor run
+INFO: Vendor David added 1 Tickets to the pool
+Dec 10, 2024 1:22:48 PM Customer run
+INFO: Customer John bought 1 Tickets from the pool
+Dec 10, 2024 1:22:48 PM Customer run
+INFO: Customer Peter bought 3 Tickets from the pool
+Dec 10, 2024 1:22:48 PM Customer run
+INFO: Customer Peter bought 3 Tickets from the pool
+Dec 10, 2024 1:22:48 PM Vendor run
+INFO: Vendor David added 1 Tickets to the pool
+Dec 10, 2024 1:22:48 PM Customer run
+INFO: Customer John bought 1 Tickets from the pool
+Dec 10, 2024 1:22:49 PM Customer run
+INFO: Customer Peter bought 2 Tickets from the pool
+Dec 10, 2024 1:22:49 PM Customer run
+INFO: Customer John bought 3 Tickets from the pool
+Dec 10, 2024 1:22:49 PM Customer run
+INFO: Customer Peter bought 2 Tickets from the pool
+Dec 10, 2024 1:22:50 PM Simulation main
+INFO: Ticketing Simulation ended.!

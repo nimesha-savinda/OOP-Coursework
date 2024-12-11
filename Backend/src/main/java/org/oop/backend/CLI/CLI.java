@@ -160,7 +160,7 @@ public class CLI {
                             System.out.println("Enter password");
 
                             String password = input.nextLine();
-                            if(password==exsisting_customer.getPassword()){
+                            if(password.equals(exsisting_customer.getPassword())){
                                 System.out.println("Successfully logged in");
                                 System.out.println("Enter ticket amount to buy");
 
@@ -168,9 +168,11 @@ public class CLI {
                                 Configuration latest_config = configController.getLatest();
 
 
-                                if(ticket_amount<latest_config.getRetrieval_rate()){
+                                if(ticket_amount<=latest_config.getRetrieval_rate()){
                                     exsisting_customer.setTicketsBought(exsisting_customer.getTicketsBought()
                                             +ticket_amount);
+                                    customerRepository.save(exsisting_customer);
+                                    System.out.println("Record updated...!");
                                 }else{System.out.println("Enter a valid ticket amount..!");}
 
                             }else{
@@ -212,7 +214,7 @@ public class CLI {
 
                             Vendor exsisting_vendor = vendor_repository.findVendorByUsername(vendor_username);
                             System.out.println("Enter password");
-                            String password = input.nextLine();
+                            String password = input.nextLine().trim();
                             if(password.equals(exsisting_vendor.getPassword())){
                                 System.out.println("Successfully logged in");
                                 System.out.println("Enter ticket amount to add");

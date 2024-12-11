@@ -23,10 +23,7 @@ public class ConfigController {
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public String createCustomer(@RequestBody ConfigurationDto configurationDto){
-
         return configurationService.saveConfiguration(configurationDto);
-
-
     }
 
     @GetMapping("/getLatest")
