@@ -38,7 +38,7 @@ public class  Customer implements Runnable {
         int iterations = random.nextInt(10) + 1; // Random iterations between 1 and 10
 
         for (int i = 0; i < iterations; i++) {
-            // Generate a random value below 10
+            // Generates a random value between 0 and retrieval rate
             int value = random.nextInt(pool.getConfiguration().getCustomerRetrievalRate())+1; // Random value between 0 and 9
 
             // Perform the operations
@@ -60,7 +60,6 @@ public class  Customer implements Runnable {
 
             }
 
-//            System.out.println(getPool().toString());
             try {
                 Thread.sleep(random.nextInt(1000)); // Random short delay
             } catch (InterruptedException e) {

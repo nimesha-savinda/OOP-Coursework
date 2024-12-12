@@ -112,13 +112,14 @@ public class CLI {
                             String response = input.nextLine();
                             if(response.equalsIgnoreCase("y")){
                                 ticket_pool_loop = true;
+                                System.out.println("Ticket track continuing..!");
                             } else if (response.equalsIgnoreCase("n")) {
                                 ticket_pool_loop = false;
                             }else{
                                 System.out.println("Please enter a valid input...!");
                                 ticket_pool_loop = true;//if the input is invalid loop will continue
                             }
-                            ticket_pool_loop = input.nextBoolean();
+
                         }catch(InputMismatchException e){
                             System.out.println("Invalid input: "+e.getMessage());
                             ticket_pool_loop = false;

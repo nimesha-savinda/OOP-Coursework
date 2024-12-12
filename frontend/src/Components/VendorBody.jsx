@@ -67,7 +67,7 @@ function VendorBody() {
                     </div>
                 </div>
                 <dev className="px-4 py-2">
-                    <a>Only {configurationFile.release_rate} at a time</a>
+                    <a>Only {configurationFile.ticket_release_rate} at a time</a>
                     <form  className='w-full flex flex-col gap-4' onSubmit={handleSubmit}>
                         <input
                             type="number"

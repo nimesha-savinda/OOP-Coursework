@@ -22,9 +22,14 @@ function CustomerBody() {
     const { sharedData, setSharedData } = useContext(DataContext);
 
 
+    
+
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setAvailableTickets(ticket_pool.availableTickets)
+        getTicketPool()
+          .then((data)=>setTicket_pool(data))
+          
           console.log("new value is"+ticket_pool.availableTickets)
 
         try {
@@ -63,7 +68,7 @@ function CustomerBody() {
                     <p>Available Tickets</p>
                 </div>
                 <div className='text-3xl items-center font-semibold'>
-                    {availableTickets}
+                    {ticket_pool.availableTickets}
                 </div>
             </div>
             <div className='flex bg-white items-center justify-between w-1/5'>

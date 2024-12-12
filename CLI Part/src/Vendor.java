@@ -13,6 +13,14 @@ public class Vendor implements Runnable{
         this.log = log;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getAdded_tickets() {
         return added_tickets;
     }
@@ -30,7 +38,7 @@ public class Vendor implements Runnable{
         int iterations = random.nextInt(10) + 1; // Random iterations between 1 and 10
 
         for (int i = 0; i < iterations; i++) {
-            // generates a random value below 10
+            // Generates a random value between 0 and release rate
             int value = random.nextInt(pool.getConfiguration().getTicketReleaseRate())+1;
 
             synchronized (pool) {
