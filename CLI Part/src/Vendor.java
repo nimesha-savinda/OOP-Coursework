@@ -58,7 +58,7 @@ public class Vendor implements Runnable{
 
                 pool.notifyAll();
 
-            }// Random value between 0 and 9
+            }
 
 
             try {
