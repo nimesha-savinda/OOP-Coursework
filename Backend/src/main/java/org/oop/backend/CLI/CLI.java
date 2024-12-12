@@ -152,32 +152,35 @@ public class CLI {
                         break;
 
                         case"2":
+                            try{
+                                System.out.println("Enter username");
+                                String username = input.nextLine();
 
-                            System.out.println("Enter username");
-                            String username = input.nextLine();
+                                Customer exsisting_customer = customerRepository.findCustomerByUsername(username);
+                                System.out.println(exsisting_customer.getPassword());
+                                System.out.println("Enter password");
 
-                            Customer exsisting_customer = customerRepository.findCustomerByUsername(username);
-                            System.out.println(exsisting_customer.getPassword());
-                            System.out.println("Enter password");
+                                String password = input.nextLine();
+                                if(password.equals(exsisting_customer.getPassword())){
+                                    System.out.println("Successfully logged in");
+                                    System.out.println("Enter ticket amount to buy");
 
-                            String password = input.nextLine();
-                            if(password.equals(exsisting_customer.getPassword())){
-                                System.out.println("Successfully logged in");
-                                System.out.println("Enter ticket amount to buy");
-
-                                Integer ticket_amount = input.nextInt();
-                                Configuration latest_config = configController.getLatest();
+                                    Integer ticket_amount = input.nextInt();
+                                    Configuration latest_config = configController.getLatest();
 
 
-                                if(ticket_amount<=latest_config.getRetrieval_rate()){
-                                    exsisting_customer.setTicketsBought(exsisting_customer.getTicketsBought()
-                                            +ticket_amount);
-                                    customerRepository.save(exsisting_customer);
-                                    System.out.println("Record updated...!");
-                                }else{System.out.println("Enter a valid ticket amount..!");}
+                                    if(ticket_amount<=latest_config.getRetrieval_rate()){
+                                        exsisting_customer.setTicketsBought(exsisting_customer.getTicketsBought()
+                                                +ticket_amount);
+                                        customerRepository.save(exsisting_customer);
+                                        System.out.println("Record updated...!");
+                                    }else{System.out.println("Enter a valid ticket amount..!");}
 
-                            }else{
-                                System.out.println("Wrong password..!");
+                                }else{
+                                    System.out.println("Wrong password..!");
+                                }
+                            }catch (Exception e){
+                                System.out.println("Error: "+e.getMessage());
                             }
 
                             break;
@@ -209,29 +212,35 @@ public class CLI {
                             break;
 
                         case"2":
+                            try {
 
-                            System.out.println("Enter username");
-                            String vendor_username = input.nextLine();
+                                System.out.println("Enter username");
+                                String vendor_username = input.nextLine();
 
-                            Vendor exsisting_vendor = vendor_repository.findVendorByUsername(vendor_username);
-                            System.out.println("Enter password");
-                            String password = input.nextLine().trim();
-                            if(password.equals(exsisting_vendor.getPassword())){
-                                System.out.println("Successfully logged in");
-                                System.out.println("Enter ticket amount to add");
+                                Vendor exsisting_vendor = vendor_repository.findVendorByUsername(vendor_username);
+                                System.out.println("Enter password");
+                                String password = input.nextLine().trim();
+                                if (password.equals(exsisting_vendor.getPassword())) {
+                                    System.out.println("Successfully logged in");
+                                    System.out.println("Enter ticket amount to add");
 
-                                Integer ticket_amount = input.nextInt();
-                                Configuration latest_config = configController.getLatest();
+                                    Integer ticket_amount = input.nextInt();
+                                    Configuration latest_config = configController.getLatest();
 
 
-                                if(ticket_amount<latest_config.getRetrieval_rate()){
-                                    exsisting_vendor.setTicketsAdded(exsisting_vendor.getTicketsAdded()
-                                            +ticket_amount);
-                                    vendor_repository.save(exsisting_vendor);
-                                }else{System.out.println("Enter a valid ticket amount..!");}
+                                    if (ticket_amount < latest_config.getRetrieval_rate()) {
+                                        exsisting_vendor.setTicketsAdded(exsisting_vendor.getTicketsAdded()
+                                                + ticket_amount);
+                                        vendor_repository.save(exsisting_vendor);
+                                    } else {
+                                        System.out.println("Enter a valid ticket amount..!");
+                                    }
 
-                            }else{
-                                System.out.println("Wrong password..!");
+                                } else {
+                                    System.out.println("Wrong password..!");
+                                }
+                            }catch(Exception e){
+                                System.out.println("Error: "+e.getMessage());
                             }
 
                             break;
