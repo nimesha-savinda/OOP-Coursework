@@ -25,7 +25,7 @@ function VendorBody() {
         e.preventDefault();
 
         try {
-            if (ticketCount > configurationFile.retrieval_rate) {
+            if (ticketCount > configurationFile.ticket_release_rate) {
                 setResponseMessage('Retrieval Limit Exceeded..!');
 
             } else {
