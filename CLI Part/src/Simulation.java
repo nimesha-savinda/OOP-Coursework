@@ -11,7 +11,7 @@ public class Simulation {
         Gson gson = new Gson();
         //file path of the local json file
         String filePath = "D:\\IIT\\Courseworks\\L05\\OOP\\OOP-Coursework\\CLI Part\\configuration.json";
-
+        //Logger to create the log file
         Logger logger = Logger.getLogger("SimulationLogger");
 
         FileHandler fileHandler = null;
@@ -74,6 +74,6 @@ public class Simulation {
             System.out.println("Error while executing threads "+e.getMessage());
         }
         System.out.println(t1.toString());
-        logger.info("Ticketing Simulation ended.!");
+        logger.info("\n Ticketing Simulation ended.!");
     }
 }
